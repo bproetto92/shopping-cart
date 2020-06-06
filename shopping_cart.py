@@ -69,9 +69,12 @@ for id in identifier:
 
 print("--------------------------------------------")
 print("SUBTOTAL: ",to_usd(total_price))
+
 tax = total_price*.07
 new_total = tax + total_price
+
 print("TAX: ",to_usd(tax))
+print("TOTAL: ",to_usd(new_total))
 print("--------------------------------------------")
 print("THANKS, SEE YOU AGAIN SOON!")
 print("--------------------------------------------")
