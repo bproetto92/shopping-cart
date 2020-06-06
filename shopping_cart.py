@@ -1,5 +1,7 @@
 # shopping_cart.py
 
+import datetime
+
 # utility function to convert float or integer to usd-formatted string (for printing)
 def to_usd(my_price):
     return "${0:,.2f}".format(my_price)  # > $12,000.71
@@ -39,9 +41,9 @@ def to_usd(my_price):
     """
     return f"${my_price:,.2f}" #> $12,000.71
 
-# TODO: write some Python code here to produce the desired output
+# CODE BEGINS
 
-#Define Blank
+#Define blank variables
 total_price = 0
 identifier = []
 
@@ -57,7 +59,10 @@ print("--------------------------------------------")
 print("BRANDONS CLEAN EATING GROCERY STORE")
 print("WWW.CLEAN-EATING.COM")
 print("--------------------------------------------")
-print("CHECKOUT AT: ","PLACEHOLDER")
+
+date = datetime.date.today()
+
+print("CHECKOUT AT: ",str(date))
 print("--------------------------------------------")
 print("SELECTED PRODUCTS:")
 
@@ -70,7 +75,7 @@ for id in identifier:
 print("--------------------------------------------")
 print("SUBTOTAL: ",to_usd(total_price))
 
-tax = total_price*.07
+tax = total_price*.0875
 new_total = tax + total_price
 
 print("TAX: ",to_usd(tax))
