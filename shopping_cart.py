@@ -37,20 +37,23 @@ def to_usd(my_price):
 
 # TODO: write some Python code here to produce the desired output
 
-# Part 1 - User Input
-
+# Part 1 - User Input and tracking selected products
+total_price = 0
 identifier = []
 while True:
     number = input("Please input a product identifer: ") #string
     if number == "done":
          break
-    matching_products = [x for x in products if str(x["id"]) == number]
-    matching_product = matching_products[0]
-    print("SELECTED PRODUCT: ",matching_product["name"],"  ",matching_product["price"])
-    identifier.append(matching_product)
+    else:
+        matching_products = [x for x in products if str(x["id"]) == number]
+        matching_product = matching_products[0]
+        print("SELECTED PRODUCT: ",matching_product["name"],"  ",matching_product["price"])
+        identifier.append(matching_product) # List created to track selected producted
+        total_price = total_price + matching_product["price"]
+
 
 print(identifier)
-
+print("TOTAL PRICE: ",total_price)
 
 #Part 2 - Look-up Products
 
@@ -62,6 +65,8 @@ identifier = []
 for x in product_ids:
     matching_product = [x for x in products if x["id"] == number]
     identifier.append(matching_product)
+
+
 
 
 
