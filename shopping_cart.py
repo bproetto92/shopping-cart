@@ -37,4 +37,19 @@ def to_usd(my_price):
 
 # TODO: write some Python code here to produce the desired output
 
+number = 0
+identifier = []
+while True:
+    number = input("Please input a product identifer: ")
+    if number == "done":
+        break
+    if number != "done":
+        identifier.append(number)
+
+
+
+
+
+
+
 print(products)
