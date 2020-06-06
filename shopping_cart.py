@@ -1,5 +1,9 @@
 # shopping_cart.py
 
+# utility function to convert float or integer to usd-formatted string (for printing)
+def to_usd(my_price):
+    return "${0:,.2f}".format(my_price)  # > $12,000.71
+
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
     {"id":2, "name": "All-Seasons Salt", "department": "pantry", "aisle": "spices seasonings", "price": 4.99},
@@ -37,37 +41,50 @@ def to_usd(my_price):
 
 # TODO: write some Python code here to produce the desired output
 
-# Part 1 - User Input and tracking selected products
+#Define Blank
 total_price = 0
 identifier = []
+
+
 while True:
     number = input("Please input a product identifer: ") #string
     if number == "done":
          break
     else:
-        matching_products = [x for x in products if str(x["id"]) == number]
+        identifier.append(number)
+
+print("--------------------------------------------")
+print("BRANDONS CLEAN EATING GROCERY STORE")
+print("WWW.CLEAN-EATING.COM")
+print("--------------------------------------------")
+print("CHECKOUT AT: ","PLACEHOLDER")
+print("--------------------------------------------")
+print("SELECTED PRODUCTS:")
+
+for id in identifier:
+        matching_products = [x for x in products if str(x["id"]) == id]
         matching_product = matching_products[0]
-        print("SELECTED PRODUCT: ",matching_product["name"],"  ",matching_product["price"])
-        identifier.append(matching_product) # List created to track selected producted
+        print("... ",matching_product["name"]," (",to_usd(matching_product["price"]),")")
         total_price = total_price + matching_product["price"]
 
+print("--------------------------------------------")
+print("SUBTOTAL: ",to_usd(total_price))
+tax = total_price*.07
+new_total = tax + total_price
+print("TAX: ",to_usd(tax))
+print("--------------------------------------------")
+print("THANKS, SEE YOU AGAIN SOON!")
+print("--------------------------------------------")
 
-print(identifier)
-print("TOTAL PRICE: ",total_price)
+# #Part 2 - Look-up Products without input
 
-#Part 2 - Look-up Products
+# product_ids = [1, 8, 6, 16, 6] # temporary list of valid ids for testing purposes
 
-product_ids = [1, 8, 6, 16, 6] # temporary list of valid ids for testing purposes
+# print("SHOPPING CART ITEM IDENTIFIERS INCLUDE:", product_ids)
 
-print("SHOPPING CART ITEM IDENTIFIERS INCLUDE:", product_ids)
-
-identifier = []
-for x in product_ids:
-    matching_product = [x for x in products if x["id"] == number]
-    identifier.append(matching_product)
+# identifier = []
+# for x in product_ids:
+#     matching_product = [x for x in products if x["id"] == number]
+#     identifier.append(matching_product)
 
 
-
-
-
-#print(products)
