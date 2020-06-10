@@ -1,6 +1,7 @@
 # shopping_cart.py
 
 import datetime
+from datetime import datetime
 
 # utility function to convert float or integer to usd-formatted string (for printing)
 def to_usd(my_price):
@@ -50,24 +51,26 @@ identifier = []
 
 while True:
     number = input("Please input a product identifer: ") #string
-    if number == "done":
+    if number == "DONE":
          break
     else:
         identifier.append(number)
+
 
 print("--------------------------------------------")
 print("BRANDONS CLEAN EATING GROCERY STORE")
 print("WWW.CLEAN-EATING.COM")
 print("--------------------------------------------")
 
-date = datetime.date.today()
+todays_date = datetime.now()
 
-print("CHECKOUT AT: ",str(date))
+print("CHECKOUT AT: ",str(todays_date),)
 print("--------------------------------------------")
 print("SELECTED PRODUCTS:")
 
 for id in identifier:
-        matching_products = [x for x in products if str(x["id"]) == id]
+    matching_products = [x for x in products if str(x["id"]) == id]
+    if len(matching_products) > 0:
         matching_product = matching_products[0]
         print("... ",matching_product["name"]," (",to_usd(matching_product["price"]),")")
         total_price = total_price + matching_product["price"]
@@ -84,15 +87,15 @@ print("--------------------------------------------")
 print("THANKS, SEE YOU AGAIN SOON!")
 print("--------------------------------------------")
 
-# #Part 2 - Look-up Products without input
+# #Part 2 - Look-up Products without input - NOT BEING USED
 
 # product_ids = [1, 8, 6, 16, 6] # temporary list of valid ids for testing purposes
 
 # print("SHOPPING CART ITEM IDENTIFIERS INCLUDE:", product_ids)
 
 # identifier = []
-# for x in product_ids:
-#     matching_product = [x for x in products if x["id"] == number]
+# for id in product_ids:
+#     matching_product = [x for x in products if x["id"] == id]
 #     identifier.append(matching_product)
 
 
