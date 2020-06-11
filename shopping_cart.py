@@ -62,9 +62,9 @@ print("BRANDONS CLEAN EATING GROCERY STORE")
 print("WWW.CLEAN-EATING.COM")
 print("--------------------------------------------")
 
-todays_date = datetime.now()
+now = datetime.now()
 
-print("CHECKOUT AT: ",str(todays_date),)
+print("CHECKOUT AT: ",now.strftime("%Y-%m-%d %H:%M:%S"))
 print("--------------------------------------------")
 print("SELECTED PRODUCTS:")
 
